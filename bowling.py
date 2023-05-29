@@ -13,6 +13,9 @@ class Game(object):
             if self.is_spare(roll_index):
                 score += 10 + self.rolls[roll_index + 2]
                 roll_index += 2
+            elif self.is_strike(roll_index):
+                score += 10 + self.rolls[roll_index + 1] + self.rolls[roll_index + 2]
+                roll_index += 1
             else:
                 score += self.rolls[roll_index] + self.rolls[roll_index + 1]
                 roll_index += 2
@@ -20,4 +23,8 @@ class Game(object):
     
     def is_spare(self, roll_index):
         return self.rolls[roll_index] + self.rolls[roll_index + 1] == 10
+    
+    def is_strike(self, roll_index):
+        return self.rolls[roll_index] == 10
+
     
