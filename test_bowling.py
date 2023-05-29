@@ -11,6 +11,10 @@ class GameTest(unittest.TestCase):
         self.roll_many(0, 20)
         self.assertEqual(0, self.game.total_score())
     
+    def test_for_all_nines(self):
+        self.roll_many(9, 20)
+        self.assertEqual(180, self.game.total_score())
+    
     # helper method
     def roll_many(self, pins, number):
         for i in range(number):
