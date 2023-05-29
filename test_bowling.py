@@ -28,7 +28,10 @@ class GameTest(unittest.TestCase):
         self.roll_many(0, 16)
         self.assertEqual(24, self.game.total_score())
 
-    
+    def test_the_perfect_game(self):
+        self.roll_many(10, 12)
+        self.assertEqual(300, self.game.total_score())
+
     
     # helper methods
     def roll_many(self, pins, number):
